@@ -1,5 +1,11 @@
 import {Entity, model, property} from '@loopback/repository';
 
+export enum UserRole {
+  SuperAdmin,
+  Admin,
+  Subscriber,
+}
+
 @model()
 export class User extends Entity {
   @property({
@@ -40,7 +46,7 @@ export class User extends Entity {
     type: 'number',
     required: true,
   })
-  role?: number;
+  role: UserRole;
 
   @property({
     type: 'string',

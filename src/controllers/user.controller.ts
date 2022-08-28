@@ -1,5 +1,6 @@
 import {repository} from '@loopback/repository';
 import {
+  del,
   get,
   getModelSchemaRef,
   param,
@@ -32,9 +33,7 @@ export class UserController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(User, {
-            exclude: ['id'],
-          }),
+          schema: getModelSchemaRef(User),
         },
       },
     })
@@ -48,9 +47,7 @@ export class UserController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(User, {
-            exclude: ['id'],
-          }),
+          schema: getModelSchemaRef(User),
         },
       },
     })
@@ -58,7 +55,12 @@ export class UserController {
   ): Promise<User> {
     user.createdOn = new Date();
     user.modifiedOn = new Date();
-    console.log(user);
+
     return this.userRepository.create(user);
+  }
+
+  @del('/users/{id}')
+  deleteUser(@param.path.number('id') id: number) {
+    return this.userRepository.deleteById(id);
   }
 }
