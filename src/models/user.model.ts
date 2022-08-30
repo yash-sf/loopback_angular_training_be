@@ -1,6 +1,6 @@
 import {Entity, model, property} from '@loopback/repository';
 
-export enum UserRole {
+enum UserRole {
   SuperAdmin,
   Admin,
   Subscriber,

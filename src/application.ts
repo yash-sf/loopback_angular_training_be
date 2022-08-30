@@ -35,7 +35,7 @@ export class AngularLoopbackTrainingBeApplication extends BootMixin(
     this.bootOptions = {
       controllers: {
         // Customize ControllerBooter Conventions here
-        dirs: ['controllersNew'],
+        dirs: ['controllers'],
         extensions: ['.controller.js'],
         nested: true,
       },
