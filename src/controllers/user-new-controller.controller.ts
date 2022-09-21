@@ -71,6 +71,7 @@ export class UserNewControllerController {
   async find(
     @param.filter(UserNew) filter?: Filter<UserNew>,
   ): Promise<UserNew[]> {
+    console.log('asdf');
     return this.userNewRepository.find(filter);
   }
 
@@ -136,6 +137,7 @@ export class UserNewControllerController {
     @param.path.number('id') id: number,
     @requestBody() userNew: UserNew,
   ): Promise<void> {
+    console.log(userNew);
     await this.userNewRepository.replaceById(id, userNew);
   }
 

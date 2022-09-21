@@ -7,6 +7,7 @@ import {
   RestExplorerComponent,
 } from '@loopback/rest-explorer';
 import {ServiceMixin} from '@loopback/service-proxy';
+import {AuthenticationServiceComponent} from '@sourceloop/authentication-service';
 import path from 'path';
 import {MySequence} from './sequence';
 
@@ -29,6 +30,7 @@ export class AngularLoopbackTrainingBeApplication extends BootMixin(
       path: '/explorer',
     });
     this.component(RestExplorerComponent);
+    this.component(AuthenticationServiceComponent);
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here

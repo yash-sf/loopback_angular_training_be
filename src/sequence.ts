@@ -38,11 +38,13 @@ export class MySequence extends MiddlewareSequence {
   }
 
   validateOrigin(origin: string): boolean {
-    const {ALLOWED_ORIGINS} = process.env;
-    const allowedOriginsArray: string[] = ALLOWED_ORIGINS?.split(',') || [];
-    if (allowedOriginsArray.includes(origin)) {
-      return true;
-    }
+    // const {ALLOWED_ORIGINS} = process.env;
+    // const allowedOriginsArray: string[] = ALLOWED_ORIGINS?.split(',') || [];
+    // console.log(origin);
+    // if (allowedOriginsArray.includes(origin)) {
+    //   return true;
+    // }
+    return true;
     return false;
   }
 

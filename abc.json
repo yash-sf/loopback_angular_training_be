@@ -1,0 +1,1302 @@
+
+> angular-loopback-training-be@0.0.1 preopenapi-spec
+> npm run build
+
+
+> angular-loopback-training-be@0.0.1 build
+> lb-tsc
+
+
+> angular-loopback-training-be@0.0.1 openapi-spec
+> node ./dist/openapi-spec
+
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "angular-loopback-training-be",
+    "version": "0.0.1",
+    "description": "angular_loopback_training_be",
+    "contact": {
+      "name": "Yash Karande",
+      "email": "yash.karande@sourcefuse.com"
+    }
+  },
+  "paths": {
+    "/dummy": {
+      "get": {
+        "x-controller-name": "DummyController",
+        "x-operation-name": "hello",
+        "tags": [
+          "DummyController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return value of DummyController.hello"
+          }
+        },
+        "operationId": "DummyController.hello"
+      }
+    },
+    "/roles/count": {
+      "get": {
+        "x-controller-name": "RoleController",
+        "x-operation-name": "count",
+        "tags": [
+          "RoleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Role model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Role.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Role>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "RoleController.count"
+      }
+    },
+    "/roles/{id}": {
+      "put": {
+        "x-controller-name": "RoleController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "RoleController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Role PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "RoleController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "RoleController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "RoleController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Role PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RolePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "RoleController.updateById"
+      },
+      "get": {
+        "x-controller-name": "RoleController",
+        "x-operation-name": "findById",
+        "tags": [
+          "RoleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Role model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "RoleController.findById"
+      },
+      "delete": {
+        "x-controller-name": "RoleController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "RoleController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Role DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "RoleController.deleteById"
+      }
+    },
+    "/roles": {
+      "post": {
+        "x-controller-name": "RoleController",
+        "x-operation-name": "create",
+        "tags": [
+          "RoleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Role model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRole"
+              }
+            }
+          }
+        },
+        "operationId": "RoleController.create"
+      },
+      "patch": {
+        "x-controller-name": "RoleController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "RoleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Role PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Role.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Role>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RolePartial"
+              }
+            }
+          }
+        },
+        "operationId": "RoleController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "RoleController",
+        "x-operation-name": "find",
+        "tags": [
+          "RoleController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Role model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "RoleController.find"
+      }
+    },
+    "/user-new/count": {
+      "get": {
+        "x-controller-name": "UserNewControllerController",
+        "x-operation-name": "count",
+        "tags": [
+          "UserNewControllerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "UserNew model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "UserNew.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<UserNew>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserNewControllerController.count"
+      }
+    },
+    "/user-new/{id}": {
+      "put": {
+        "x-controller-name": "UserNewControllerController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "UserNewControllerController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "UserNew PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserNew"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserNewControllerController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "UserNewControllerController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "UserNewControllerController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "UserNew PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserNewPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserNewControllerController.updateById"
+      },
+      "get": {
+        "x-controller-name": "UserNewControllerController",
+        "x-operation-name": "findById",
+        "tags": [
+          "UserNewControllerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "UserNew model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNewWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNew.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserNewControllerController.findById"
+      },
+      "delete": {
+        "x-controller-name": "UserNewControllerController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "UserNewControllerController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "UserNew DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "UserNewControllerController.deleteById"
+      }
+    },
+    "/user-new": {
+      "post": {
+        "x-controller-name": "UserNewControllerController",
+        "x-operation-name": "create",
+        "tags": [
+          "UserNewControllerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "UserNew model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNew"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUserNew"
+              }
+            }
+          }
+        },
+        "operationId": "UserNewControllerController.create"
+      },
+      "patch": {
+        "x-controller-name": "UserNewControllerController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "UserNewControllerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "UserNew PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "UserNew.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<UserNew>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserNewPartial"
+              }
+            }
+          }
+        },
+        "operationId": "UserNewControllerController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "UserNewControllerController",
+        "x-operation-name": "find",
+        "tags": [
+          "UserNewControllerController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of UserNew model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserNewWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNew.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserNewControllerController.find"
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "updateUser",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return value of UserController.updateUser"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserController.updateUser"
+      },
+      "get": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "getUser",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return value of UserController.getUser"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "UserController.getUser"
+      },
+      "delete": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "deleteUser",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return value of UserController.deleteUser"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "UserController.deleteUser"
+      }
+    },
+    "/users": {
+      "post": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "createUser",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return value of UserController.createUser"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "operationId": "UserController.createUser"
+      },
+      "get": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "getUsers",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return value of UserController.getUsers"
+          }
+        },
+        "operationId": "UserController.getUsers"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Role": {
+        "title": "Role",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "key": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "key"
+        ],
+        "additionalProperties": false
+      },
+      "NewRole": {
+        "title": "NewRole",
+        "type": "object",
+        "description": "(tsType: Omit<Role, 'id'>, schemaOptions: { title: 'NewRole', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "key": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "key"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Role, 'id'>"
+      },
+      "RoleWithRelations": {
+        "title": "RoleWithRelations",
+        "type": "object",
+        "description": "(tsType: RoleWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "key": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "key"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "RoleWithRelations"
+      },
+      "RolePartial": {
+        "title": "RolePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Role>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "key": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Role>"
+      },
+      "UserNew": {
+        "title": "UserNew",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "role_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "role_id"
+        ],
+        "additionalProperties": false
+      },
+      "NewUserNew": {
+        "title": "NewUserNew",
+        "type": "object",
+        "description": "(tsType: Omit<UserNew, 'id'>, schemaOptions: { title: 'NewUserNew', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "role_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "role_id"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<UserNew, 'id'>"
+      },
+      "UserNewWithRelations": {
+        "title": "UserNewWithRelations",
+        "type": "object",
+        "description": "(tsType: UserNewWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "role_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "role_id"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "UserNewWithRelations"
+      },
+      "UserNewPartial": {
+        "title": "UserNewPartial",
+        "type": "object",
+        "description": "(tsType: Partial<UserNew>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "role_id": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<UserNew>"
+      },
+      "User": {
+        "title": "User",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "role": {
+            "type": "number"
+          },
+          "address": {
+            "type": "string"
+          },
+          "createdOn": {
+            "type": "string"
+          },
+          "modifiedOn": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "firstName",
+          "email",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Role.Filter": {
+        "type": "object",
+        "title": "Role.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "key": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "key"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Role.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Role>"
+      },
+      "Role.Filter1": {
+        "type": "object",
+        "title": "Role.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Role.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "key": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "key"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Role.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Role>"
+      },
+      "UserNew.Filter": {
+        "type": "object",
+        "title": "UserNew.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "address": {
+                    "type": "boolean"
+                  },
+                  "website": {
+                    "type": "boolean"
+                  },
+                  "role_id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "address",
+                    "website",
+                    "role_id"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "UserNew.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<UserNew>"
+      },
+      "UserNew.Filter1": {
+        "type": "object",
+        "title": "UserNew.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "UserNew.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "address": {
+                    "type": "boolean"
+                  },
+                  "website": {
+                    "type": "boolean"
+                  },
+                  "role_id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "name",
+                    "address",
+                    "website",
+                    "role_id"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "UserNew.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<UserNew>"
+      }
+    }
+  }
+}
