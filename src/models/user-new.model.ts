@@ -1,26 +1,19 @@
-import {Entity, model, property} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
+import {Role} from './role.model';
 
 @model({
   settings: {
     strict: true,
-    foreignKeys: {
-      fk_user_role_id: {
-        name: 'fk_user_role_id',
-        entity: 'Role',
-        entityKey: 'id',
-        foreignKey: 'role_id',
-      },
-    },
     postgresql: {schema: 'public', table: 'users_new'},
   },
 })
 export class UserNew extends Entity {
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
-    generated: true,
+    defaultFn: 'uuidv4',
   })
-  id: number;
+  id: string;
 
   @property({
     type: 'string',
@@ -38,12 +31,7 @@ export class UserNew extends Entity {
   })
   website?: string;
 
-  @property({
-    type: 'number',
-    id: true,
-    generated: false,
-    required: true,
-  })
+  @belongsTo(() => Role, {name: 'role'})
   role_id: number;
 
   [prop: string]: any;

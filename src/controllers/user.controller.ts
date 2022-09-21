@@ -8,6 +8,7 @@ import {
   put,
   requestBody,
 } from '@loopback/rest';
+import {USER_SLUG_URL} from '../constants';
 import {User} from '../models';
 import {UserRepository} from '../repositories';
 
@@ -17,17 +18,17 @@ export class UserController {
     public userRepository: UserRepository,
   ) {}
 
-  @get('/users')
+  @get(USER_SLUG_URL)
   getUsers(): Promise<User[]> {
     return this.userRepository.find();
   }
 
-  @get('/users/{id}')
+  @get(`${USER_SLUG_URL}/{id}`)
   getUser(@param.path.number('id') id: number) {
     return this.userRepository.findById(id);
   }
 
-  @put('/users/{id}')
+  @put(`${USER_SLUG_URL}/{id}`)
   updateUser(
     @param.path.number('id') id: number,
     @requestBody({
@@ -42,7 +43,7 @@ export class UserController {
     return this.userRepository.updateById(id, user);
   }
 
-  @post('/users')
+  @post(USER_SLUG_URL)
   createUser(
     @requestBody({
       content: {
@@ -59,7 +60,7 @@ export class UserController {
     return this.userRepository.create(user);
   }
 
-  @del('/users/{id}')
+  @del(`${USER_SLUG_URL}/{id}`)
   deleteUser(@param.path.number('id') id: number) {
     return this.userRepository.deleteById(id);
   }

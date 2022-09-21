@@ -17,6 +17,7 @@ import {
   requestBody,
   response,
 } from '@loopback/rest';
+import {USER_NEW_SLUG_URL} from '../constants';
 import {UserNew} from '../models';
 import {UserNewRepository} from '../repositories';
 
@@ -26,7 +27,7 @@ export class UserNewControllerController {
     public userNewRepository: UserNewRepository,
   ) {}
 
-  @post('/user-new')
+  @post(USER_NEW_SLUG_URL)
   @response(200, {
     description: 'UserNew model instance',
     content: {'application/json': {schema: getModelSchemaRef(UserNew)}},
@@ -47,7 +48,7 @@ export class UserNewControllerController {
     return this.userNewRepository.create(userNew);
   }
 
-  @get('/user-new/count')
+  @get(`${USER_NEW_SLUG_URL}/count`)
   @response(200, {
     description: 'UserNew model count',
     content: {'application/json': {schema: CountSchema}},
@@ -56,7 +57,7 @@ export class UserNewControllerController {
     return this.userNewRepository.count(where);
   }
 
-  @get('/user-new')
+  @get(USER_NEW_SLUG_URL)
   @response(200, {
     description: 'Array of UserNew model instances',
     content: {
@@ -75,7 +76,7 @@ export class UserNewControllerController {
     return this.userNewRepository.find(filter);
   }
 
-  @patch('/user-new')
+  @patch(USER_NEW_SLUG_URL)
   @response(200, {
     description: 'UserNew PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -94,7 +95,7 @@ export class UserNewControllerController {
     return this.userNewRepository.updateAll(userNew, where);
   }
 
-  @get('/user-new/{id}')
+  @get(`${USER_NEW_SLUG_URL}/{id}`)
   @response(200, {
     description: 'UserNew model instance',
     content: {
@@ -111,7 +112,7 @@ export class UserNewControllerController {
     return this.userNewRepository.findById(id, filter);
   }
 
-  @patch('/user-new/{id}')
+  @patch(`${USER_NEW_SLUG_URL}/{id}`)
   @response(204, {
     description: 'UserNew PATCH success',
   })
@@ -129,7 +130,7 @@ export class UserNewControllerController {
     await this.userNewRepository.updateById(id, userNew);
   }
 
-  @put('/user-new/{id}')
+  @put(`${USER_NEW_SLUG_URL}/{id}`)
   @response(204, {
     description: 'UserNew PUT success',
   })
@@ -141,7 +142,7 @@ export class UserNewControllerController {
     await this.userNewRepository.replaceById(id, userNew);
   }
 
-  @del('/user-new/{id}')
+  @del(`${USER_NEW_SLUG_URL}/{id}`)
   @response(204, {
     description: 'UserNew DELETE success',
   })
