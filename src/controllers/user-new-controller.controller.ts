@@ -139,7 +139,7 @@ export class UserNewControllerController {
     @requestBody() userNew: UserNew,
   ): Promise<void> {
     console.log(userNew);
-    await this.userNewRepository.replaceById(id, userNew);
+    return this.userNewRepository.replaceById(id, userNew);
   }
 
   @del(`${USER_NEW_SLUG_URL}/{id}`)
@@ -147,6 +147,6 @@ export class UserNewControllerController {
     description: 'UserNew DELETE success',
   })
   async deleteById(@param.path.number('id') id: number): Promise<void> {
-    await this.userNewRepository.deleteById(id);
+    return this.userNewRepository.deleteById(id);
   }
 }

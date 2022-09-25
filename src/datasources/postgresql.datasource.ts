@@ -7,9 +7,9 @@ const config = {
   url: `postgres://postgres:1234@localhost/database1`,
   host: 'localhost',
   port: 5432,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  user: 'postgres',
+  password: '1234',
+  database: 'database1',
 };
 
 // Observe application's life cycle to disconnect the datasource when

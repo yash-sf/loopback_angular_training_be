@@ -9,11 +9,11 @@ import {Role} from './role.model';
 })
 export class UserNew extends Entity {
   @property({
-    type: 'string',
+    type: 'number',
     id: true,
-    defaultFn: 'uuidv4',
+    generated: true,
   })
-  id: string;
+  id: number;
 
   @property({
     type: 'string',
